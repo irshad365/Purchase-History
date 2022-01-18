@@ -25,6 +25,8 @@
 		37D501942797748900576897 /* PurchaseHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D501932797748800576897 /* PurchaseHistoryModel.swift */; };
 		37D50197279774CF00576897 /* PurchaseHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50196279774CF00576897 /* PurchaseHistoryView.swift */; };
 		37D50199279774E100576897 /* PurchaseHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50198279774E100576897 /* PurchaseHistoryViewModel.swift */; };
+		37D5019C2797770F00576897 /* AsyncResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D5019B2797770F00576897 /* AsyncResponse.swift */; };
+		37D5019E27977A4800576897 /* InfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D5019D27977A4800576897 /* InfoHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		37D501932797748800576897 /* PurchaseHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryModel.swift; sourceTree = "<group>"; };
 		37D50196279774CF00576897 /* PurchaseHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryView.swift; sourceTree = "<group>"; };
 		37D50198279774E100576897 /* PurchaseHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryViewModel.swift; sourceTree = "<group>"; };
+		37D5019B2797770F00576897 /* AsyncResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResponse.swift; sourceTree = "<group>"; };
+		37D5019D27977A4800576897 /* InfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				37D5019A279774EB00576897 /* PurchaseHistory */,
 				37D50195279774A000576897 /* Model */,
 				37D5018D279726B700576897 /* Network */,
+				37D5019D27977A4800576897 /* InfoHelper.swift */,
 				37D501562797182A00576897 /* Assets.xcassets */,
 				37D501582797182A00576897 /* Preview Content */,
 			);
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				37D50189279726AD00576897 /* Session.swift */,
+				37D5019B2797770F00576897 /* AsyncResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -320,7 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D501552797182600576897 /* ProfileView.swift in Sources */,
+				37D5019E27977A4800576897 /* InfoHelper.swift in Sources */,
 				37D501942797748900576897 /* PurchaseHistoryModel.swift in Sources */,
+				37D5019C2797770F00576897 /* AsyncResponse.swift in Sources */,
 				37D50199279774E100576897 /* PurchaseHistoryViewModel.swift in Sources */,
 				37D50197279774CF00576897 /* PurchaseHistoryView.swift in Sources */,
 				37D501532797182600576897 /* idmeTHEApp.swift in Sources */,
@@ -486,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "https://idme-takehome.proxy.beeceptor.com/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"idmeTHE/Preview Content\"";
@@ -515,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "https://idme-takehome.proxy.beeceptor.com/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"idmeTHE/Preview Content\"";
@@ -677,6 +687,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-qa";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "https://idme-takehome.proxy.beeceptor.com/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"idmeTHE/Preview Content\"";
@@ -797,6 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-qa";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "https://idme-takehome.proxy.beeceptor.com/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"idmeTHE/Preview Content\"";
