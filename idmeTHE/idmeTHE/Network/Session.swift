@@ -14,17 +14,19 @@ class Session {
     func load<T>(urlString: String, dataType: T.Type) async -> AsyncResponse<T> where T: Decodable {
         let urlString = Bundle.main.baseURL + urlString
         guard let url = URL(string: urlString) else {
-            return .failure("error")
+            return .failure("url in bundle error")
         }
+        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let decodedResponse = try? JSONDecoder().decode(dataType, from: data) {
                 return .success(decodedResponse)
+            } else {
+                return .failure("response data error")
             }
         } catch {
-            return .failure("error")
+            return .failure("server error")
         }
-        return .failure("error")
     }
     
 }
