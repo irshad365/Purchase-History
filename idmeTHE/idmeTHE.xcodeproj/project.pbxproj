@@ -20,8 +20,11 @@
 		37D5018A279726AD00576897 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50189279726AD00576897 /* Session.swift */; };
 		37D5018B279726AD00576897 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50189279726AD00576897 /* Session.swift */; };
 		37D5018C279726AD00576897 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50189279726AD00576897 /* Session.swift */; };
-		37D5018F27976ED000576897 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D5018E27976ED000576897 /* ResponseModel.swift */; };
+		37D5018F27976ED000576897 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D5018E27976ED000576897 /* ProfileModel.swift */; };
 		37D5019127976FD500576897 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D5019027976FD500576897 /* ProfileViewModel.swift */; };
+		37D501942797748900576897 /* PurchaseHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D501932797748800576897 /* PurchaseHistoryModel.swift */; };
+		37D50197279774CF00576897 /* PurchaseHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50196279774CF00576897 /* PurchaseHistoryView.swift */; };
+		37D50199279774E100576897 /* PurchaseHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D50198279774E100576897 /* PurchaseHistoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +58,11 @@
 		37D5017C279719FC00576897 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		37D5018827971E4C00576897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		37D50189279726AD00576897 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		37D5018E27976ED000576897 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		37D5018E27976ED000576897 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		37D5019027976FD500576897 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		37D501932797748800576897 /* PurchaseHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryModel.swift; sourceTree = "<group>"; };
+		37D50196279774CF00576897 /* PurchaseHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryView.swift; sourceTree = "<group>"; };
+		37D50198279774E100576897 /* PurchaseHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +117,8 @@
 				37D5018827971E4C00576897 /* Info.plist */,
 				37D501522797182600576897 /* idmeTHEApp.swift */,
 				37D501922797736C00576897 /* ProfileView */,
-				37D5018E27976ED000576897 /* ResponseModel.swift */,
+				37D5019A279774EB00576897 /* PurchaseHistory */,
+				37D50195279774A000576897 /* Model */,
 				37D5018D279726B700576897 /* Network */,
 				37D501562797182A00576897 /* Assets.xcassets */,
 				37D501582797182A00576897 /* Preview Content */,
@@ -159,6 +166,24 @@
 				37D5019027976FD500576897 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		37D50195279774A000576897 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37D5018E27976ED000576897 /* ProfileModel.swift */,
+				37D501932797748800576897 /* PurchaseHistoryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37D5019A279774EB00576897 /* PurchaseHistory */ = {
+			isa = PBXGroup;
+			children = (
+				37D50196279774CF00576897 /* PurchaseHistoryView.swift */,
+				37D50198279774E100576897 /* PurchaseHistoryViewModel.swift */,
+			);
+			path = PurchaseHistory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +320,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D501552797182600576897 /* ProfileView.swift in Sources */,
+				37D501942797748900576897 /* PurchaseHistoryModel.swift in Sources */,
+				37D50199279774E100576897 /* PurchaseHistoryViewModel.swift in Sources */,
+				37D50197279774CF00576897 /* PurchaseHistoryView.swift in Sources */,
 				37D501532797182600576897 /* idmeTHEApp.swift in Sources */,
-				37D5018F27976ED000576897 /* ResponseModel.swift in Sources */,
+				37D5018F27976ED000576897 /* ProfileModel.swift in Sources */,
 				37D5018A279726AD00576897 /* Session.swift in Sources */,
 				37D5019127976FD500576897 /* ProfileViewModel.swift in Sources */,
 			);
