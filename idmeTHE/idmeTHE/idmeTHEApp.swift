@@ -11,11 +11,12 @@ import SwiftUI
 struct idmeTHEApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProfileView()
         }
     }
+    
 }
 
 //TODO: -
 // Add environment and mvvm in readme
-//
+// Dark mode
