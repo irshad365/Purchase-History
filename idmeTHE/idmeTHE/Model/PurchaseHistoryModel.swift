@@ -11,9 +11,11 @@ typealias Purchases = [Purchase]
 
 struct Purchase: Codable {
     let image: String
-    let purchaseDate, itemName, price, serial: String
+    let purchaseDate: Date
+    let itemName, price, serial: String
     let purchaseDescription: String
 
+    
     enum CodingKeys: String, CodingKey {
         case image
         case purchaseDate = "purchase_date"

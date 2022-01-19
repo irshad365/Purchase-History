@@ -9,7 +9,7 @@ import Foundation
 
 struct Profile: Codable {
     let name, userName, fullName, phoneNumber: String
-    let registration: String
+    let registration: Date
     let image: String
 
     enum CodingKeys: String, CodingKey {

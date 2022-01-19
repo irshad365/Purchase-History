@@ -19,7 +19,12 @@ class Session {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            if let decodedResponse = try? JSONDecoder().decode(dataType, from: data) {
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+//            let rssFeed = try! decoder.decode(RSSFeed.self, from: data)
+            
+            if let decodedResponse = try? decoder.decode(dataType, from: data) {
                 return .success(decodedResponse)
             } else {
                 return .failure("response data error")

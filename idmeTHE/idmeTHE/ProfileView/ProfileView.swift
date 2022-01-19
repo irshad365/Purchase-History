@@ -36,7 +36,7 @@ struct ProfileModelView: View {
                 
                 ProfileDataRowView(title: "PHONE_NUMBER", message: profile.phoneNumber.toPhoneNumber)
                 
-                ProfileDataRowView(title: "REGISTRATION_DATE", message: profile.registration)
+                ProfileDataRowView(title: "REGISTRATION_DATE", message: profile.registration.stringValue)
             }
             
             NavigationLink(destination: PurchaseHistoryView()) {
@@ -55,7 +55,6 @@ struct ProfileModelView: View {
         .padding()
     }
 }
-
 
 struct ProfileDataRowView: View {
     var title: LocalizedStringKey
@@ -94,9 +93,6 @@ struct ProfileView: View {
         .task {
             await viewModel.loadData()
         }
-        .refreshable {
-            await viewModel.loadData()
-        }
     }
     
 }
@@ -108,7 +104,7 @@ struct ProfileView_Previews: PreviewProvider {
                               userName: "@jennsmith",
                               fullName: "Jennifer Avie Smith",
                               phoneNumber: "17025555555",
-                              registration: "2021-08-02T13:45:00.000Z",
+                              registration: Date.now,
                               image: "https://i.imgur.com/i4f37c8.jpg")
         
         Group {
