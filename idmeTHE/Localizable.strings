@@ -5,3 +5,17 @@
   Created by Mohamed Farook, Irshad on 1/18/22.
   
 */
+
+"PERSONAL" = "Personal";
+"USER_NAME" = "Username";
+"FULL_NAME" = "Full name";
+"PHONE_NUMBER" = "Phone number";
+"REGISTRATION_DATE" = "Registration date";
+"VIEW_PURCHASES" = "View Purchases";
+
+"PURCHASES" = "Purchases";
+
+"ABOUT_PURCHASES" = "About Purchases";
+"ABOUT_PURCHASES_BODY" = "This screen contains your entire purchase history. you can sort it by data of purchase. This screen contains your entire purchase history. you can sort it by data of purchase. This screen contains your entire purchase history. you can sort it by data of purchase.";
+"SERIAL" = "Serial";
+"DESCRIPTION" = "Description";

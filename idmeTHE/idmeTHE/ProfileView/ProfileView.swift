@@ -12,41 +12,83 @@ struct ProfileModelView: View {
     let profile: Profile
     
     var body: some View {
-        VStack(spacing: 30) {
-            VStack {
-                ProfileImageView(urlString: profile.image)
+        VStack(spacing: 40) {
+            VStack(spacing: 0) {
+                IDAsyncImageView(urlString: profile.image)
+                    .frame(width: 200, height: 200, alignment: .center)
                 Text(profile.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
             }
             
-            HStack {
-                Text("Personal")
-                    .font(.callout)
-                    .foregroundColor(Color.gray)
-                    
-                Spacer()
+            VStack(spacing: 20) {
+                HStack {
+                    Text("PERSONAL")
+                        .font(.callout)
+                        .foregroundColor(Color.gray)
+                        
+                    Spacer()
+                }
+                
+                ProfileDataRowView(title: "USER_NAME", message: profile.userName)
+                
+                ProfileDataRowView(title: "FULL_NAME", message: profile.fullName)
+                
+                ProfileDataRowView(title: "PHONE_NUMBER", message: profile.phoneNumber.toPhoneNumber)
+                
+                ProfileDataRowView(title: "REGISTRATION_DATE", message: profile.registration)
             }
+            
+            NavigationLink(destination: PurchaseHistoryView()) {
+                ZStack {
+                    Capsule()
+                        .frame(height: 50.0)
+                    Text("VIEW_PURCHASES")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(.horizontal, 20)
+            
+            Spacer()
         }
         .padding()
     }
-    
 }
+
+
+struct ProfileDataRowView: View {
+    var title: LocalizedStringKey
+    var message: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.title3)
+            Spacer()
+            Text(message)
+                .foregroundColor(Color.gray)
+        }
+    }
+}
+
 
 struct ProfileView: View {
     @StateObject var viewModel = ProfileViewModel()
     
     var body: some View {
-        Group {
-            switch viewModel.result {
-            case .empty:
-                Text("")
-            case .inProgress:
-                ProgressView()
-            case let .success(profile):
-                ProfileModelView(profile: profile)
-            case let .failure(error):
-                Text(error)
+        NavigationView {
+            Group {
+                switch viewModel.result {
+                case .empty:
+                    Text("")
+                case .inProgress:
+                    ProgressView()
+                case let .success(profile):
+                    ProfileModelView(profile: profile)
+                case let .failure(error):
+                    Text(error)
+                }
             }
         }
         .task {
@@ -59,29 +101,6 @@ struct ProfileView: View {
     
 }
 
-struct ProfileImageView: View {
-    let urlString: String
-    
-    var body: some View {
-        AsyncImage(url: URL(string: urlString), transaction: Transaction(animation: .spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.25))) { phase in
-            switch phase {
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFit()
-                
-            case .failure(_):
-                Image("placeholder")
-            case .empty:
-                Image("placeholder")
-            @unknown default:
-                ProgressView()
-            }
-        }
-        .clipShape(Circle())
-        .padding()
-    }
-}
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
@@ -93,9 +112,14 @@ struct ProfileView_Previews: PreviewProvider {
                               image: "https://i.imgur.com/i4f37c8.jpg")
         
         Group {
-            ProfileModelView(profile: profile)
-            ProfileModelView(profile: profile)
-                .preferredColorScheme(.dark)
+            NavigationView {
+                ProfileModelView(profile: profile)
+            }
+            
+            NavigationView {
+                ProfileModelView(profile: profile)
+                    .preferredColorScheme(.dark)
+            }
         }
     }
 }
