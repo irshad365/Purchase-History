@@ -72,7 +72,7 @@ struct PurchasesModelView: View {
     let purchases: Purchases
     
     var body: some View {
-        List(purchases, id: \.purchaseDate) { purchase in
+        List(purchases.sorted{$0.purchaseDate > $1.purchaseDate}, id: \.purchaseDate) { purchase in
             PurchasesRowView(purchase: purchase)
         }
         .listStyle(GroupedListStyle())
