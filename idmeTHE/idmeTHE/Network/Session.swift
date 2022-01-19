@@ -22,7 +22,6 @@ class Session {
             
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-//            let rssFeed = try! decoder.decode(RSSFeed.self, from: data)
             
             if let decodedResponse = try? decoder.decode(dataType, from: data) {
                 return .success(decodedResponse)

@@ -12,20 +12,16 @@ struct PurchasesRowView: View {
     @State var expand = false
     
     var image: some View {
-        VStack {
-            IDAsyncImageView(url: purchase.image)
-                .frame(width: 50, height: 50, alignment: .center)
-                .padding(.top, 8)
-            Spacer()
-        }
+        IDAsyncImageView(url: purchase.image)
+            .frame(width: 50, height: 50, alignment: .center)
     }
     
     var title: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
-                //TODO: - fix single line title bug
                 Text(purchase.itemName)
                     .font(.title3)
+                
                 Text(purchase.purchaseDate.stringValue)
                     .font(.subheadline)
                     .foregroundColor(Color.gray)
@@ -49,22 +45,18 @@ struct PurchasesRowView: View {
     }
     
     var body: some View {
-        HStack(spacing: 16) {
-            image
-            
-            VStack(alignment: .leading, spacing: 8.0) {
+        VStack(alignment: .leading, spacing: 8.0) {
+            HStack(spacing: 16) {
+                image
                 title
-                    .onTapGesture {
-                        expand.toggle()
-                    }
-                
-                if expand == true {
-                    moreDetails
-
-                }
+                    .onTapGesture { expand.toggle() }
+            }
+            if expand == true {
+                moreDetails
+                    .padding(.leading, 66)
             }
         }
-        .padding(.bottom, 8)
+        
     }
 }
 
