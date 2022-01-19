@@ -14,7 +14,7 @@ struct ProfileModelView: View {
     var body: some View {
         VStack(spacing: 40) {
             VStack(spacing: 0) {
-                IDAsyncImageView(urlString: profile.image)
+                IDAsyncImageView(url: profile.image)
                     .frame(width: 200, height: 200, alignment: .center)
                 Text(profile.name)
                     .font(.largeTitle)
@@ -105,7 +105,7 @@ struct ProfileView_Previews: PreviewProvider {
                               fullName: "Jennifer Avie Smith",
                               phoneNumber: "17025555555",
                               registration: Date.now,
-                              image: "https://i.imgur.com/i4f37c8.jpg")
+                              image: URL(string:"https://i.imgur.com/i4f37c8.jpg")!)
         
         Group {
             NavigationView {

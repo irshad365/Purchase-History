@@ -10,7 +10,7 @@ import Foundation
 struct Profile: Codable {
     let name, userName, fullName, phoneNumber: String
     let registration: Date
-    let image: String
+    let image: URL
 
     enum CodingKeys: String, CodingKey {
         case name

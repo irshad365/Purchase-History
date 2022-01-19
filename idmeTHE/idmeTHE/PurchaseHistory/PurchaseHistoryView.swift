@@ -13,7 +13,7 @@ struct PurchasesRowView: View {
     
     var image: some View {
         VStack {
-            IDAsyncImageView(urlString: purchase.image)
+            IDAsyncImageView(url: purchase.image)
                 .frame(width: 50, height: 50, alignment: .center)
                 .padding(.top, 8)
             Spacer()
@@ -105,8 +105,8 @@ struct PurchaseHistoryView: View {
 struct PurchaseHistoryView_Previews: PreviewProvider {
     static var previews: some View {
         let purchaseArray = [
-            Purchase(image: "https://picsum.photos/id/0/200", purchaseDate: Date.now, itemName: "back-end generating alarm test long string", price: "234.00", serial: "5003330362", purchaseDescription: "I&#x27;ll connect the virtual SSL matrix, that should array the SAS matrix!"),
-            Purchase(image: "https://picsum.photos/id/1/200", purchaseDate: Date.now, itemName: "online copying firewall", price: "569.00", serial: "1058368307", purchaseDescription: "I&#x27;ll synthesize the mobile THX matrix, that should bus the HDD transmitter!")
+            Purchase(image: URL(string:"https://picsum.photos/id/0/200")!, purchaseDate: Date.now, itemName: "back-end generating alarm test long string", price: "234.00", serial: "5003330362", purchaseDescription: "I&#x27;ll connect the virtual SSL matrix, that should array the SAS matrix!"),
+            Purchase(image: URL(string:"https://picsum.photos/id/1/200")!, purchaseDate: Date.now, itemName: "online copying firewall", price: "569.00", serial: "1058368307", purchaseDescription: "I&#x27;ll synthesize the mobile THX matrix, that should bus the HDD transmitter!")
         ]
         
         Group {

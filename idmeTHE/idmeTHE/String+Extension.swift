@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-    // TODO: - do this on data parsing
     var htmlDecoded: String {
         let decoded = try? NSAttributedString(data: Data(utf8), options: [
             .documentType: NSAttributedString.DocumentType.html,

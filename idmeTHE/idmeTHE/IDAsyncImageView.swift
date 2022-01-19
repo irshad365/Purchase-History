@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct IDAsyncImageView: View {
-    let urlString: String
+    let url: URL
     
     var body: some View {
-        AsyncImage(url: URL(string: urlString), transaction: Transaction(animation: .spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.25))) { phase in
+        AsyncImage(url: url, transaction: Transaction(animation: .spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.25))) { phase in
             switch phase {
             case .success(let image):
                 image
@@ -33,7 +33,7 @@ struct IDAsyncImageView: View {
 
 struct IDAsyncImageView_Previews: PreviewProvider {
     static var previews: some View {
-        IDAsyncImageView(urlString: "https://i.imgur.com/i4f37c8.jpg")
+        IDAsyncImageView(url: URL(string: "https://i.imgur.com/i4f37c8.jpg")!)
             .background(.green)
             .frame(width: 100, height: 100, alignment: .center)
     }
