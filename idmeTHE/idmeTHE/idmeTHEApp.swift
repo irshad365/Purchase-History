@@ -16,7 +16,3 @@ struct idmeTHEApp: App {
     }
     
 }
-
-//TODO: -
-// Add QA environment and mvvm in readme
-// Dark mode

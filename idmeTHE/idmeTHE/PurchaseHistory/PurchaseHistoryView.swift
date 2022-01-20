@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+//TODO: - Add search and sort
 struct PurchasesRowView: View {
     let purchase: Purchase
     @State var expand = false
@@ -56,7 +58,6 @@ struct PurchasesRowView: View {
                     .padding(.leading, 66)
             }
         }
-        
     }
 }
 
@@ -67,12 +68,13 @@ struct PurchasesModelView: View {
         List(purchases.sorted{$0.purchaseDate > $1.purchaseDate}, id: \.purchaseDate) { purchase in
             PurchasesRowView(purchase: purchase)
         }
-        .listStyle(GroupedListStyle())
+        .listStyle(.plain)
     }
 }
 
 struct PurchaseHistoryView: View {
     @StateObject var viewModel = PurchaseHistoryViewModel()
+    @State private var showingSheet = false
     
     var body: some View {
         Group {
@@ -87,7 +89,19 @@ struct PurchaseHistoryView: View {
                 Text(error)
             }
         }
-        .navigationTitle("PURCHASES")
+        .sheet(isPresented: $showingSheet, content: {
+           SheetView()
+        })
+        .navigationBarTitle(Text("PURCHASES"), displayMode: .inline)
+        .navigationBarItems(
+            trailing:
+                Button {
+                    showingSheet.toggle()
+                } label: {
+                    Image(systemName: "info.circle")
+                        .foregroundColor(.black)
+                }
+        )
         .task {
             await viewModel.loadData()
         }
@@ -102,6 +116,10 @@ struct PurchaseHistoryView_Previews: PreviewProvider {
         ]
         
         Group {
+            NavigationView{
+                PurchaseHistoryView()
+            }
+            
             NavigationView {
                 PurchasesModelView(purchases: purchaseArray)
                     .navigationTitle("PURCHASES")
