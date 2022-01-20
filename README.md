@@ -22,5 +22,8 @@ Take Home Exercise (THE)
 - [x] Production
 - [x] QA
 
+## Preview
+![Icon](/screenShots/iconNqa.png)
+
 ## Meta
 Mohamed Irshad – [@irshad365](https://www.linkedin.com/in/irshad365) – irshad365@gmail.com
