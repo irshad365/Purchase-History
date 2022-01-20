@@ -19,3 +19,5 @@
 "ABOUT_PURCHASES_BODY" = "This screen contains your entire purchase history. you can sort it by data of purchase. you can sort it by price and you can filter it with the search bar";
 "SERIAL" = "Serial";
 "DESCRIPTION" = "Description";
+"DISMISS" = "Dismiss";
+"ITEM_IMAGE" = "Item Image";

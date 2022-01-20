@@ -49,6 +49,7 @@ struct ProfileModelView: View {
                 }
             }
             .padding(.horizontal, 20)
+            .accessibilityLabel("VIEW_PURCHASES")
             
             Spacer()
         }
@@ -64,6 +65,7 @@ struct ProfileDataRowView: View {
         HStack {
             Text(title)
                 .font(.title3)
+            
             Spacer()
             Text(message)
                 .foregroundColor(Color.gray)

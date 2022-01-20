@@ -16,6 +16,7 @@ struct PurchasesRowView: View {
     var image: some View {
         IDAsyncImageView(url: purchase.image)
             .frame(width: 50, height: 50, alignment: .center)
+            .accessibilityLabel("ITEM_IMAGE")
     }
     
     var title: some View {

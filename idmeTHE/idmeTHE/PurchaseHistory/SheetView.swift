@@ -15,17 +15,20 @@ struct SheetView: View {
             HStack {
                 Text("ABOUT_PURCHASES")
                     .font(.title)
-                .fontWeight(.bold)
+                    .fontWeight(.bold)
+                
                 Spacer()
                 Button {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(UIColor.label))
                 }
+                .accessibilityLabel("DISMISS")
             }
             Text("ABOUT_PURCHASES_BODY")
                 .multilineTextAlignment(.leading)
+
             Spacer()
         }
         .padding()
@@ -35,5 +38,6 @@ struct SheetView: View {
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
         SheetView()
+            .preferredColorScheme(.dark)
     }
 }
