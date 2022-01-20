@@ -9,67 +9,26 @@ import SwiftUI
 
 
 //TODO: - Add search and sort
-struct PurchasesRowView: View {
-    let purchase: Purchase
-    @State var expand = false
-    
-    var image: some View {
-        IDAsyncImageView(url: purchase.image)
-            .frame(width: 50, height: 50, alignment: .center)
-            .accessibilityLabel("ITEM_IMAGE")
-    }
-    
-    var title: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 8.0) {
-                Text(purchase.itemName)
-                    .font(.title3)
-                
-                Text(purchase.purchaseDate.stringValue)
-                    .font(.subheadline)
-                    .foregroundColor(Color.gray)
-            }
-            
-            Spacer()
-            
-            Text("$")+Text(purchase.price)
-        }
-    }
-    
-    var moreDetails: some View {
-        VStack(alignment: .leading, spacing: 8.0) {
-            Text("SERIAL") + Text(": ") + Text(purchase.serial)
-            Text("DESCRIPTION") + Text(":")
-            Text(purchase.purchaseDescription)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .font(.subheadline)
-        .foregroundColor(Color.gray)
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8.0) {
-            HStack(spacing: 16) {
-                image
-                title
-                    .onTapGesture { expand.toggle() }
-            }
-            if expand == true {
-                moreDetails
-                    .padding(.leading, 66)
-            }
-        }
-    }
-}
 
-struct PurchasesModelView: View {
+struct PurchasesListView: View {
     let purchases: Purchases
     
+    var filteredPurchases: Purchases {
+        if searchText.isEmpty {
+            return purchases
+        } else {
+            return purchases.filter { $0.itemName.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
+    @State private var searchText = ""
+
     var body: some View {
-        List(purchases.sorted{$0.purchaseDate > $1.purchaseDate}, id: \.purchaseDate) { purchase in
+        List(filteredPurchases.sorted{$0.purchaseDate > $1.purchaseDate}, id: \.purchaseDate) { purchase in
             PurchasesRowView(purchase: purchase)
         }
         .listStyle(.plain)
+        .searchable(text: $searchText)
     }
 }
 
@@ -85,7 +44,7 @@ struct PurchaseHistoryView: View {
             case .inProgress:
                 ProgressView()
             case let .success(purchases):
-                PurchasesModelView(purchases: purchases)
+                PurchasesListView(purchases: purchases)
             case let .failure(error):
                 Text(error)
             }
@@ -122,14 +81,12 @@ struct PurchaseHistoryView_Previews: PreviewProvider {
             }
             
             NavigationView {
-                PurchasesModelView(purchases: purchaseArray)
-                    .navigationTitle("PURCHASES")
+                PurchasesListView(purchases: purchaseArray)
             }
             
             NavigationView {
-                PurchasesModelView(purchases: purchaseArray)
+                PurchasesListView(purchases: purchaseArray)
                     .preferredColorScheme(.dark)
-                    .navigationTitle("PURCHASES")
             }
         }
     }
