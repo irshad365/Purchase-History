@@ -5,9 +5,11 @@
 # ID.me THE
 Take Home Exercise (THE)
 
-## Deployment Info
+## Info
 - [x] iPhone
 - [ ] iPad
+- [x] Accessibility
+- [x] Dark Mode
 - [x] Portrait
 - [ ] Landscape & Upside Down
 - [x] iOS 15+
