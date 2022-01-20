@@ -18,12 +18,24 @@ class idmeTHETests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testHistoryData() throws {
+        guard let path = Bundle(for: type(of: self)).path(forResource: "purchaseHistory", ofType: "json")
+        else { fatalError("Can't find purchaseHistory.json file") }
+        
+        let data = try Data(contentsOf: URL(fileURLWithPath: path))
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+        
+        if let decodedResponse = try? decoder.decode(Purchases.self, from: data), let purchase = decodedResponse.first {
+            XCTAssertEqual(purchase.purchaseDate.debugDescription, "2020-12-30 00:00:00 +0000")
+            XCTAssertEqual(purchase.purchaseDescription, "I'll input the neural ADP panel, that should card the JBOD application!")
+        } else {
+            XCTAssertFalse(true)
+        }
+    }
+    
+    func testPhoneNumberFormater() throws {
+        XCTAssertEqual("17025555555".toPhoneNumber,"+1 (702) 555-5555")
     }
 
     func testPerformanceExample() throws {
