@@ -18,5 +18,9 @@ Take Home Exercise (THE)
 ## Requirements
 - Xcode 13.2.1
 
+## Supported Environment
+- [x] Production
+- [x] QA
+
 ## Meta
 Mohamed Irshad – [@irshad365](https://www.linkedin.com/in/irshad365) – irshad365@gmail.com
