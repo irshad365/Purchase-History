@@ -5,9 +5,11 @@
 # ID.me THE
 Take Home Exercise (THE)
 
-## Deployment Info
+## Info
 - [x] iPhone
 - [ ] iPad
+- [x] Accessibility
+- [x] Dark Mode
 - [x] Portrait
 - [ ] Landscape & Upside Down
 - [x] iOS 15+
@@ -15,6 +17,10 @@ Take Home Exercise (THE)
 
 ## Requirements
 - Xcode 13.2.1
+
+## Supported Environment
+- [x] Production
+- [x] QA
 
 ## Meta
 Mohamed Irshad – [@irshad365](https://www.linkedin.com/in/irshad365) – irshad365@gmail.com
