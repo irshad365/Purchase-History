@@ -23,14 +23,19 @@ struct PurchasesRowView: View {
                 Text(purchase.itemName)
                     .font(.title3)
                 
-                Text(purchase.purchaseDate.stringValue)
-                    .font(.subheadline)
-                    .foregroundColor(Color.gray)
+                if let date = purchase.date {
+                    Text(date.stringValue)
+                        .font(.subheadline)
+                        .foregroundColor(Color.gray)
+                }
             }
             
             Spacer()
             
-            Text("$")+Text(purchase.price)
+            if let price = purchase.priceAmount {
+                Text("$")+Text(price)
+            }
+            
         }
     }
     
@@ -60,9 +65,9 @@ struct PurchasesRowView: View {
     }
 }
 
-
-struct PurchasesRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        PurchasesRowView(purchase: Purchase(image: URL(string:"https://picsum.photos/id/1/200")!, purchaseDate: Date.now, itemName: "online copying firewall", price: "569.00", serial: "1058368307", purchaseDescription: "I&#x27;ll synthesize the mobile THX matrix, that should bus the HDD transmitter!"))
-    }
-}
+//
+//struct PurchasesRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PurchasesRowView(purchase: Purchase(image: URL(string:"https://picsum.photos/id/1/200")!, purchaseDate: Date.now, itemName: "online copying firewall", price: "569.00", serial: "1058368307", purchaseDescription: "I&#x27;ll synthesize the mobile THX matrix, that should bus the HDD transmitter!"))
+//    }
+//}

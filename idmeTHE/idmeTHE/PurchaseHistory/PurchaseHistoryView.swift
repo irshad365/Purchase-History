@@ -21,16 +21,41 @@ struct PurchasesListView: View {
         }
     }
     
+    var personsByMonth : [String: [Purchase]] {
+        guard !filteredPurchases.isEmpty else { return [:] }
+        return Dictionary(grouping: filteredPurchases, by: { $0.monthNyear })
+    }
+    
     @State private var searchText = ""
 
     var body: some View {
-        List(filteredPurchases.sorted{$0.purchaseDate > $1.purchaseDate}, id: \.purchaseDate) { purchase in
-            PurchasesRowView(purchase: purchase)
+        let dict = personsByMonth
+        
+        let keys = dict.map{$0.key}
+        
+        List {
+            ForEach(keys.indices ) { index in
+                Section(header: Text(keys[index])+Text("sss") ) {
+                    ForEach(dict[keys[index]] ?? [Purchase](), id: \.self) { purchase in
+                        PurchasesRowView(purchase: purchase)
+                           
+                    }
+                }
+            }
         }
-        .listStyle(.plain)
         .searchable(text: $searchText)
     }
+    
+//    func calculatePrice(array: [Purchase]) {
+//        var count = 0
+//        for purchase in array {
+//            if let amount = purchase.price {
+//                count = count + amount
+//            } else if let negAmount = purch
+//        }
+//    }
 }
+
 
 struct PurchaseHistoryView: View {
     @StateObject var viewModel = PurchaseHistoryViewModel()
@@ -68,26 +93,26 @@ struct PurchaseHistoryView: View {
     }
 }
 
-struct PurchaseHistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        let purchaseArray = [
-            Purchase(image: URL(string:"https://picsum.photos/id/0/200")!, purchaseDate: Date.now, itemName: "back-end generating alarm test long string", price: "234.00", serial: "5003330362", purchaseDescription: "I&#x27;ll connect the virtual SSL matrix, that should array the SAS matrix!"),
-            Purchase(image: URL(string:"https://picsum.photos/id/1/200")!, purchaseDate: Date.now, itemName: "online copying firewall", price: "569.00", serial: "1058368307", purchaseDescription: "I&#x27;ll synthesize the mobile THX matrix, that should bus the HDD transmitter!")
-        ]
-        
-        Group {
-            NavigationView{
-                PurchaseHistoryView()
-            }
-            
-            NavigationView {
-                PurchasesListView(purchases: purchaseArray)
-            }
-            
-            NavigationView {
-                PurchasesListView(purchases: purchaseArray)
-                    .preferredColorScheme(.dark)
-            }
-        }
-    }
-}
+//struct PurchaseHistoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let purchaseArray = [
+//            Purchase(image: URL(string:"https://picsum.photos/id/0/200")!, purchaseDate: Date.now, itemName: "back-end generating alarm test long string", price: "234.00", serial: "5003330362", purchaseDescription: "I&#x27;ll connect the virtual SSL matrix, that should array the SAS matrix!"),
+//            Purchase(image: URL(string:"https://picsum.photos/id/1/200")!, purchaseDate: Date.now, itemName: "online copying firewall", price: "569.00", serial: "1058368307", purchaseDescription: "I&#x27;ll synthesize the mobile THX matrix, that should bus the HDD transmitter!")
+//        ]
+//        
+//        Group {
+//            NavigationView{
+//                PurchaseHistoryView()
+//            }
+//            
+//            NavigationView {
+//                PurchasesListView(purchases: purchaseArray)
+//            }
+//            
+//            NavigationView {
+//                PurchasesListView(purchases: purchaseArray)
+//                    .preferredColorScheme(.dark)
+//            }
+//        }
+//    }
+//}

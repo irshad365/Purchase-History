@@ -37,3 +37,4 @@ class Session {
 
 let userProfile = "profile/U13023932"
 let purchaseHistory = "purchases/U13023932?page=1"
+let refund = "refunds/U13023932"
