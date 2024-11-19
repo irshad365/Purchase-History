@@ -24,4 +24,4 @@ A simple application to display profile and list of purchase history
 - [x] QA
 
 ## Meta
-Mohamed Irshad – [@irshad365](https://www.linkedin.com/in/irshad365) – irshad365@gmail.com
+Mohamed Irshad – [@Linkedin](https://www.linkedin.com/in/irshad365)
