@@ -2,8 +2,9 @@
 [![User Interface](https://img.shields.io/badge/UI-SwiftUI-blue.svg)](https://developer.apple.com/xcode/swiftui/)
 [![Platform](https://img.shields.io/badge/Platform-iOS-orange.svg)](https://www.apple.com/ios/ios-15/)
 
-# ID.me THE
-Take Home Exercise (THE)
+
+# Profile and Purchase (2022)
+A simple application to display profile and list of purchase history
 
 ## Info
 - [x] iPhone
